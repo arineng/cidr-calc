@@ -35,6 +35,10 @@ export abstract class IpAddress {
     return ByteArrayUtils.compare(this.bytes, other.bytes);
   }
 
+  toString(): string {
+    return this.shortNotation();
+  }
+
   abstract version(): string;
 
   abstract regularNotation(): string;
@@ -120,6 +124,10 @@ export class Cidr {
     }
   }
 
+  toString(): string {
+    return `${this.prefix}/${this.prefixLen}`;
+  }
+
   toIpRange(): IpRange {
     let startIpBytes = this.prefix.toByteArray();
     let endIpBytes = startIpBytes.slice(0);
@@ -160,6 +168,10 @@ export class IpRange {
     if (startIpAddr.compareTo(endIpAddr) > 0) {
       throw new Error('Start IP address must not be greater than end IP address');
     }
+  }
+
+  toString(): string {
+    return `${this.startIpAddr} - ${this.endIpAddr}`;
   }
 
   toCidrs(): Cidr[] {

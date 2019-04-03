@@ -16,6 +16,7 @@ An `IpAddress` class represents an IP address. Its instance functions are:
     toByteArray: returns a copy of the byte array representing the IP address
     compareTo: returns the result (-1, 0, or 1) that it compares to another IpAddress
                Only IpAddresses of the same version can be compared
+    toString: return the string representation of the IP address
     version: returns a string '4' or '6'
     regularNotation: returns a regular string representation of the IP address
                      e.g., 10.0.1.2, 2001:0:0:f:f00:0:0:1
