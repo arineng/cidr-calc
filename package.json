@@ -2,6 +2,13 @@
   "name": "cidr-calc",
   "version": "1.0.0",
   "description": "A library for converting IP range to CIDRs or CIDR to IP range.",
+  "keywords": [
+    "cidr",
+    "ip",
+    "ipv4",
+    "ipv6",
+    "address"
+  ],
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
