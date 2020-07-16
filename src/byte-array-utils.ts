@@ -15,6 +15,19 @@ export class ByteArrayUtils {
     return result;
   }
 
+  static minusOne(bytes: number[]): number[] {
+    let result = bytes.slice(0);
+    for (let i = result.length - 1; i >= 0; --i) {
+      if (result[i] > 0) {
+        --result[i];
+        break;
+      } else {
+        result[i] = 0xff;
+      }
+    }
+    return result;
+  }
+
   static compare(bytes1: number[], bytes2: number[]): number {
     let byteCount = this.validateSameSizeAndGetSize(bytes1, bytes2);
 

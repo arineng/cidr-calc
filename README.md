@@ -14,6 +14,8 @@ The API consists of three classes: `IpAddress`, `Cidr` and `IpRange`.
 An `IpAddress` class represents an IP address. Its instance functions are:
 
     toByteArray: returns a copy of the byte array representing the IP address
+    next: return the next IP address
+    prev: return the previous IP address
     compareTo: returns the result (-1, 0, or 1) that it compares to another IpAddress
                Only IpAddresses of the same version can be compared
     toString: return the string representation of the IP address

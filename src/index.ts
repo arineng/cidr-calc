@@ -27,6 +27,14 @@ export abstract class IpAddress {
     return this.bytes.slice(0);
   }
 
+  next(): IpAddress {
+    return IpAddress.fromByteArray(ByteArrayUtils.plusOne(this.toByteArray()))
+  }
+
+  prev(): IpAddress {
+    return IpAddress.fromByteArray(ByteArrayUtils.minusOne(this.toByteArray()))
+  }
+
   compareTo(other: IpAddress): number {
     if (this.version() !== other.version()) {
       throw new Error('Only IpAddresses of the same version can be compared');
