@@ -7,7 +7,9 @@ or CIDR to IP range.
 
 The API consists of three classes: `IpAddress`, `Cidr` and `IpRange`.
 
-    import { Cidr, IpAddress, IpRange } from 'cidr-calc';
+``` js
+import { Cidr, IpAddress, IpRange } from 'cidr-calc';
+```
 
 ### IpAddress
 
@@ -39,11 +41,15 @@ in [guava], Google core libraries for Java.
 
 A `Cidr` class can be constructed with an IP address and a prefix length.
 
-    let cidr = new Cidr(IpAddress.of('192.168.0.0'), 16);
+``` js
+let cidr = new Cidr(IpAddress.of('192.168.0.0'), 16);
+```
 
 Then we can convert the CIDR to an IP range with the `toIpRange` function.
 
-    let ipRange = cidr.toIpRange(); // 192.168.0.0 - 192.168.255.255
+``` js
+let ipRange = cidr.toIpRange(); // 192.168.0.0 - 192.168.255.255
+```
 
 Note that the IP address passed in to construct the CIDR may not be the start IP of the range.
 
@@ -51,11 +57,15 @@ Note that the IP address passed in to construct the CIDR may not be the start IP
 
 An `IpRange` class can be constructed with a start IP address and an end IP address.
 
-    let ipRange = new IpRange(IpAddress.of('3::'), IpAddress.of('7:ffff:ffff:ffff:ffff:ffff:ffff:ffff'));
+``` js
+let ipRange = new IpRange(IpAddress.of('3::'), IpAddress.of('7:ffff:ffff:ffff:ffff:ffff:ffff:ffff'));
+```
 
 Then we can convert the IP range to a list of CIDRs (as a Cidr array) with the `toCidrs` function.
 
-    let cidrs = ipRange.toCidrs(); // [3::/16, 4::/14]
+``` js
+let cidrs = ipRange.toCidrs(); // [3::/16, 4::/14]
+```
 
 The implementation of the `toCidrs` function was inspired by the `IPv4Range` and `IPv6Range`
 classes in [ineter], a fast Java library for working with IP addresses, ranges, and subnets.
